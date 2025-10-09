@@ -42,7 +42,7 @@
                 
                 //Redirijo a la pagina de welcome 
                 header("Location: welcome.php");
-                exit;
+                exit; //Hago un exit para que se me muera la pagina
             }
         }
     }
