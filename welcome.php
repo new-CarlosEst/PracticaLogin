@@ -2,23 +2,23 @@
     //Si el metodo es de post
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         //Detecto si ha tocado el boton de compras
-        $direccionar = "";
+        
         if (isset($_POST["compra"])){
-            //pongo la direccion a compra.php
-            $direccionar = "compra.php";
+            header("location: compras.php");
+            exit; //Exit lo que hace es para que la pagina se muera
         }
         else if (isset($_POST["venta"])){
-            //pongo la direccion a venta.php
-            $direccionar = "venta.php";
+            header("location: venta.php");
+            exit;
         }
         else if (isset($_POST["cerrarSesion"])){
-            //Pongo la dirrecion al login
-            $direccionar = "login.php";
             //borro la cookie
             setcookie("datos_usuario", "", time()-3600);
+
+            //Voy a login otra vez
+            header("location: login.php");
+            exit;
         }
-        header("location : " . $direccionar);
-        exit;
 
     }
 ?>
