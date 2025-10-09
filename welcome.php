@@ -4,7 +4,7 @@
         //Detecto si ha tocado el boton de compras
         
         if (isset($_POST["compra"])){
-            header("location: compras.php");
+            header("location: compra.php");
             exit; //Exit lo que hace es para que la pagina se muera
         }
         else if (isset($_POST["venta"])){

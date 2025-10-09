@@ -34,11 +34,15 @@
 ;
             }
             else {
-                //saco todos los datos de usuaria y lo transformo a formato json
-                $datosCookie = json_encode($credenciales);
+                //saco todos los datos de usuaria y lo meto en array asociativo
+                $datosCookie = [
+                                "nombre" => $credenciales->__getNombre(),
+                                "contraseña" => $credenciales->__getPassword(),
+                                "rol" => $credenciales->__getRol()
+                            ];
                 
-                //Creo la cookie y le meto el rol y pongo que expire en 1 hora
-                setcookie("datos_usuario", $datosCookie, time() + 3600);
+                //Creo la cookie y le meto los tados con un json_encode y pongo que expire en 1 hora
+                setcookie("datos_usuario", json_encode($datosCookie), time() + 3600);
                 
                 //Redirijo a la pagina de welcome 
                 header("Location: welcome.php");
