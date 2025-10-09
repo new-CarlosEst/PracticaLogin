@@ -4,14 +4,14 @@
         //Me creo 2 objeto usuarios y los meto a un array
         $user1 = new Usuario("usuarioCompras", "compras123", "Compras");
         $user2 = new Usuario("usuarioVentas", "ventas123" , "Ventas");
-        $user3 = new Usuario("admin", "admin2025", "Administrador");
+        $user3 = new Usuario("admin", "admin123", "Administrador");
 
-        $usuarios = [$user1, $user2];
+        $usuarios = [$user1, $user2, $user3];
 
         for ($i = 0; $i< count($usuarios) ; $i++){
             //Si el usuario pasado por parametro y la contraseña coinciden con los de uno de los usuarios del array devuelve true y al usuario
             if ($usuarios[$i]->__getNombre() == $user && $usuarios[$i]->__getPassword() == $password){
-                return [true, $usuarios[$i]];
+                return $usuarios[$i];
             }
         }
         //y si no encuentra el usuario devuelve falso
@@ -34,11 +34,15 @@
 ;
             }
             else {
+                //saco todos los datos de usuaria y lo transformo a formato json
+                $datosCookie = json_encode($credenciales);
+                
                 //Creo la cookie y le meto el rol y pongo que expire en 1 hora
-                setcookie("Rol", $credenciales[1]->__getRol() , time() + 3600);
+                setcookie("datos_usuario", $datosCookie, time() + 3600);
                 
                 //Redirijo a la pagina de welcome 
-                header("Location: welcome.php?user=$user&password=$pass");
+                header("Location: welcome.php");
+                exit;
             }
         }
     }

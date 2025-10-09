@@ -1,15 +1,14 @@
 body{
     background-image: url(../resources/fondoWelcome.png);
-    position: fixed;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .wrapper {	
-	margin-top: 80px;
+	margin-top: 200px;
     margin-bottom: 80px;
     background-color: white;
     border-radius: 20% 20% 20% 20%;
@@ -21,3 +20,4 @@ body{
 h1{
     padding: 50px;
 }
+

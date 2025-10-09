@@ -1,5 +1,25 @@
 <?php
+    //Si el metodo es de post
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        //Detecto si ha tocado el boton de compras
+        if (isset($_POST["compra"])){
+            header("location: compras.php");
+            exit; //Exit lo que hace es para que la pagina se muera
+        }
+        else if (isset($_POST["venta"])){
+            header("location: venta.php");
+            exit;
+        }
+        else if (isset($_POST["cerrarSesion"])){
+            //borro la cookie
+            setcookie("datos_usuario", "", time()-3600);
 
+            //Voy a login otra vez
+            header("location: login.php");
+            exit;
+        }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,14 +33,12 @@
 </head>
 <body>
     <div class="wrapper">
-        <form>
-            <h2>Bienvenido</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                <button class="btn btn-link">Compra</button>
-                <button class="btn btn-link">Venta</button>
-                <br/>
-                <button class="btn btn-primary btn-lg">Cerrar Sesion</button>
-            </form>
+        <h2>Bienvenido</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+            <button class="btn btn-link" name="compra">Compra</button>
+            <button class="btn btn-link" name="venta">Venta</button>
+            <br/>
+            <button class="btn btn-primary btn-lg" name="cerrarSesion">Cerrar Sesion</button>
         </form>
     </div>
 </body>
