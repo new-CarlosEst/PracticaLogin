@@ -4,6 +4,7 @@
         //Me creo 2 objeto usuarios y los meto a un array
         $user1 = new Usuario("usuarioCompras", "compras123", "Compras");
         $user2 = new Usuario("usuarioVentas", "ventas123" , "Ventas");
+        $user3 = new Usuario("admin", "admin2025", "Administrador");
 
         $usuarios = [$user1, $user2];
 
