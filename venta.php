@@ -7,8 +7,6 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             //Detecto si ha tocado el boton de salir
             if (isset($_POST["salir"])){
-                //borro la cookie 
-                setcookie("datos_usuario", "", time()-3600);
                 //voy a login
                 header("location: login.php");
                 exit; //Exit lo que hace es para que la pagina se muera

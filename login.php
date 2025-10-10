@@ -1,5 +1,5 @@
 <?php
-    //si la cookie esta ya creada te la borrar
+    //si la cookie esta ya creada te la borra
     if (isset($_COOKIE["datos_usuario"])){
         setcookie("datos_usuario", "", time()-3600);
     }

@@ -17,9 +17,6 @@
                 exit;
             }
             else if (isset($_POST["cerrarSesion"])){
-                //borro la cookie
-                setcookie("datos_usuario", "", time()-3600);
-
                 //Voy a login otra vez
                 header("location: login.php");
                 exit;
