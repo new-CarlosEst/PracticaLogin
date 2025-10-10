@@ -1,25 +1,30 @@
 <?php
-    //Si el metodo es de post
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        //Detecto si ha tocado el boton de compras
-        
-        if (isset($_POST["compra"])){
-            header("location: compra.php");
-            exit; //Exit lo que hace es para que la pagina se muera
-        }
-        else if (isset($_POST["venta"])){
-            header("location: venta.php");
-            exit;
-        }
-        else if (isset($_POST["cerrarSesion"])){
-            //borro la cookie
-            setcookie("datos_usuario", "", time()-3600);
+    //Si la cookie no esta, te devuelve a login
+    if (!isset($_COOKIE["datos_usuario"])){
+        header("location: login.php");
+    }
+    else{
+        //Si el metodo es de post
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            //Detecto si ha tocado el boton de compras
+            
+            if (isset($_POST["compra"])){
+                header("location: compra.php");
+                exit; //Exit lo que hace es para que la pagina se muera
+            }
+            else if (isset($_POST["venta"])){
+                header("location: venta.php");
+                exit;
+            }
+            else if (isset($_POST["cerrarSesion"])){
+                //borro la cookie
+                setcookie("datos_usuario", "", time()-3600);
 
-            //Voy a login otra vez
-            header("location: login.php");
-            exit;
+                //Voy a login otra vez
+                header("location: login.php");
+                exit;
+            }
         }
-
     }
 ?>
 

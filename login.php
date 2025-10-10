@@ -1,4 +1,8 @@
 <?php
+    //si la cookie esta ya creada te la borrar
+    if (isset($_COOKIE["datos_usuario"])){
+        setcookie("datos_usuario", "", time()-3600);
+    }
     include_once "Usuario.php";
     function comprobarCredenciales($user, $password){
         //Me creo 2 objeto usuarios y los meto a un array
@@ -17,6 +21,7 @@
         //y si no encuentra el usuario devuelve falso
         return false;
     }
+    
     //Si el metodo es post
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         //Si ha pasado usuario y contraseña
@@ -31,7 +36,7 @@
             if (!$credenciales){
                 //Salta la alerta
                 echo '<script src="js/alerta.js"></script>';
-;
+
             }
             else {
                 //saco todos los datos de usuaria y lo meto en array asociativo
