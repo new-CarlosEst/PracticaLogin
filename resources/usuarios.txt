@@ -1,0 +1,3 @@
+usuarioCompras compras123
+usuarioVentas ventas123
+admin admin123

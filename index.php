@@ -1,3 +1,6 @@
+<?php
+    require_once "login.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +9,6 @@
     <title>Indice</title>
 </head>
 <body>
-    <?php
-    require_once "login.php";
-    ?>
+    
 </body>
 </html>
