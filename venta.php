@@ -11,6 +11,11 @@
                 header("location: login.php");
                 exit; //Exit lo que hace es para que la pagina se muera
             }
+            else if (isset($_POST["atras"])){
+                //voy a welcome
+                header("location: welcome.php");
+                exit; //Exit lo que hace es para que la pagina se muera
+            }
         }
     }
 ?>
@@ -39,6 +44,7 @@
         <br/>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <button class="btn btn-primary" name ="salir">Salir</button>
+            <button class="btn btn-danger" name ="atras">Atras</button>
         </form>
 
     </div>
