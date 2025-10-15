@@ -3,6 +3,7 @@
     if (isset($_COOKIE["datos_usuario"])){
         setcookie("datos_usuario", "", time()-3600);
     }
+    
     include_once "Usuario.php";
     function comprobarCredenciales($user, $password){
         //Me creo 2 objeto usuarios y los meto a un array
